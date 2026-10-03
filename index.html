@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7f4">
+  <meta name="description" content="Selected projects by Caleb Rong. Explore SignSpeak, an ASL translation prototype; Locus, a photo location explorer; and Cognify, an AI study workspace.">
+  <title>Caleb Rong — Ideas, made real.</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#work">Skip to projects</a>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="#home" aria-label="Caleb Rong home"><span class="brand-mark">c<span>•</span></span><span>Caleb Rong<span class="brand-sub"> / portfolio</span></span></a>
+      <nav aria-label="Main navigation">
+        <a class="nav-link" href="#work">Work <span class="nav-count">03</span></a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-github" href="https://github.com/plut0000" target="_blank" rel="noopener noreferrer">GitHub <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero container" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="tiny-star">✳</span> A LITTLE CURIOSITY. A LOT OF BUILDING.</div>
+        <h1 id="hero-title">Ideas,<br>made <em>real.</em></h1>
+        <p class="hero-description">I build things that make the complex feel simple.<br class="desktop-break"> Here’s a small collection of experiments in<br class="desktop-break"> communication, discovery, and learning.</p>
+        <a class="button button-dark" href="#work">Explore my work <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14m-6-6 6 6 6-6"/></svg></a>
+        <div class="hero-footnote"><span class="status-dot"></span> Always curious. Always making.</div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <svg class="orbit-line" viewBox="0 0 560 500"><path d="M180 124C468 9 591 248 374 383S-18 305 180 124Z"/></svg>
+        <span class="art-cross cross-one">+</span><span class="art-cross cross-two">+</span>
+        <div class="floating-card float-sign">
+          <div class="mini-card-heading"><span class="mini-dot mint"></span> SignSpeak <span>01</span></div>
+          <div class="sign-symbol"><svg viewBox="0 0 100 100"><path d="M33 66 27 47q-3-8 4-9 4-1 7 7l3 7V26q0-8 7-8t7 8v22-29q0-8 7-8t7 8v29-22q0-8 7-8t7 8v26-13q0-7 6-7t6 7v23q0 28-27 31-24 1-35-19Z"/><circle cx="48" cy="23" r="3"/><circle cx="62" cy="16" r="3"/><circle cx="77" cy="22" r="3"/><circle cx="89" cy="37" r="3"/></svg></div>
+          <div class="mini-caption">A new way to be heard.<svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></div>
+        </div>
+        <div class="floating-card float-locus">
+          <div class="mini-card-heading"><span class="mini-dot green"></span> Locus <span>02</span></div>
+          <div class="mini-map"><div class="map-curve curve-one"></div><div class="map-curve curve-two"></div><div class="map-target"><svg viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/></svg></div></div>
+          <div class="mini-caption">Every photo has a place.</div>
+        </div>
+        <div class="floating-card float-cognify">
+          <div class="mini-card-heading"><span class="mini-dot purple"></span> Cognify <span>03</span></div>
+          <div class="mini-study"><span class="study-spark">✦</span><div class="study-lines"><i></i><i></i><i></i></div><span class="study-check">✓</span></div>
+          <div class="mini-caption">Less friction. More learning.</div>
+        </div>
+        <span class="art-note">GOOD QUESTIONS → NEW POSSIBILITIES</span>
+      </div>
+    </section>
+    <div class="theme-strip"><div class="container theme-inner"><span>BUILT WITH CURIOSITY</span><span>Accessibility <i>✳</i> Exploration <i>✳</i> Learning</span><a href="#work" aria-label="Scroll to selected projects">↓</a></div></div>
+    <section class="work-section container" id="work" aria-labelledby="work-title">
+      <div class="section-topline"><span class="eyebrow">01 / SELECTED WORK</span><span class="section-note">Three projects. Three different questions.</span></div>
+      <div class="work-heading"><h2 id="work-title">A few things <br>I’ve <em>made.</em></h2><p>From an idea to something you can interact with. <br>Take a look under the hood.</p></div>
+      <div class="project-toolbar">
+        <div class="filters" role="group" aria-label="Filter projects by focus">
+          <button class="filter active" data-filter="all" aria-pressed="true">All projects <span>03</span></button>
+          <button class="filter" data-filter="accessibility" aria-pressed="false">Accessibility</button>
+          <button class="filter" data-filter="exploration" aria-pressed="false">Exploration</button>
+          <button class="filter" data-filter="learning" aria-pressed="false">Learning</button>
+        </div>
+        <span class="view-label">A COLLECTION OF EXPERIMENTS</span>
+      </div>
+      <p class="sr-only" id="filter-status" aria-live="polite">Showing all 3 projects.</p>
+      <div class="project-list">
+        <article class="project-card signspeak" data-category="accessibility" aria-labelledby="signspeak-title">
+          <div class="project-art sign-art">
+            <img src="assets/signspeak-art.svg" alt="Illustration of a hand tracked with connected landmarks" width="760" height="560">
+            <div class="art-topbar"><span class="app-wordmark"><svg viewBox="0 0 24 24" class="icon"><path d="M5 15V9m5 10V5m5 12V7m5 7v-4"/></svg> SignSpeak</span><span class="preview-state"><i></i> ASL → ENGLISH</span></div>
+            <div class="translation-card"><span>THE IDEA</span><p>From movement<br>to meaning.</p><div class="waveform"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            <span class="art-label">PROJECT VISUALIZATION</span>
+            <span class="art-index">01</span>
+          </div>
+          <div class="project-copy">
+            <div class="project-meta"><span>ACCESSIBILITY / COMPUTER VISION</span><span>01</span></div>
+            <h3 id="signspeak-title">SignSpeak<span class="project-period">.</span></h3>
+            <p class="project-tagline">A new way to be heard.</p>
+            <p class="project-description">An ASL translation proof of concept that turns camera input into displayed and spoken English. Exploring how computer vision can make communication more accessible.</p>
+            <div class="tech-tags" aria-label="Built with"><span>Next.js</span><span>MediaPipe</span><span>Gemini</span></div>
+            <div class="project-actions"><button class="text-action" data-project="signspeak">Explore project <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button><a class="source-link" href="https://github.com/plut0000/signspeak-asl-poc" target="_blank" rel="noopener noreferrer">Source code ↗<span class="sr-only"> (opens in a new tab)</span></a></div>
+          </div>
+        </article>
+        <article class="project-card locus" data-category="exploration" aria-labelledby="locus-title">
+          <div class="project-art locus-art">
+            <img src="assets/locus-art.svg" alt="Illustrated map with a location pin and uncertainty circle" width="760" height="560">
+            <div class="art-topbar"><span class="app-wordmark"><svg class="icon" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/></svg> Locus</span><span class="preview-state">PHOTO → PLACE</span></div>
+            <div class="location-card"><span class="location-icon">⌖</span><div><span>THE IDEA</span><p>Every photo has a place.</p></div><span class="location-arrow">↗</span></div>
+            <span class="art-label">PROJECT VISUALIZATION</span><span class="art-index">02</span>
+          </div>
+          <div class="project-copy">
+            <div class="project-meta"><span>EXPLORATION / VISUAL AI</span><span>02</span></div>
+            <h3 id="locus-title">Locus<span class="project-period">.</span></h3>
+            <p class="project-tagline">A photo. A clue. A place.</p>
+            <p class="project-description">Drop in a photo and explore where it might have been taken. Locus combines embedded GPS data or visual AI with an interactive map—and makes room for uncertainty.</p>
+            <div class="tech-tags" aria-label="Built with"><span>React</span><span>TypeScript</span><span>Leaflet</span></div>
+            <div class="project-actions"><button class="text-action" data-project="locus">Explore project <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button><a class="source-link" href="https://github.com/plut0000/photo-geo-guess" target="_blank" rel="noopener noreferrer">Source code ↗<span class="sr-only"> (opens in a new tab)</span></a></div>
+          </div>
+        </article>
+        <article class="project-card cognify" data-category="learning" aria-labelledby="cognify-title">
+          <div class="project-art cognify-art">
+            <div class="art-topbar"><span class="app-wordmark"><span class="cognify-logo">✳</span> Cognify</span><span class="preview-state">NOTES → KNOWLEDGE</span></div>
+            <div class="study-window">
+              <div class="study-window-bar"><div><i></i><i></i><i></i></div><span>YOUR STUDY SPACE</span><span>✦</span></div>
+              <div class="study-window-body"><div class="study-sidebar"><span class="study-nav-active">▤ &nbsp; Notebook</span><span>▱ &nbsp; Flashcards</span><span>✓ &nbsp; Practice</span><div class="study-file">↳ &nbsp; Biology notes</div></div><div class="study-content"><span class="study-subtitle">A LITTLE PRACTICE GOES A LONG WAY</span><p class="study-window-title">One idea at a time.</p><div class="flashcard"><div><span>BIOLOGY</span><span>01 / 08</span></div><p>What powers<br>the cell?</p><span class="flashcard-bottom">✦ &nbsp; A question worth remembering</span></div><div class="study-progress"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+            </div>
+            <div class="study-badge">✦ &nbsp; Make room for the aha.</div>
+            <span class="art-label">ILLUSTRATIVE INTERFACE</span><span class="art-index">03</span>
+          </div>
+          <div class="project-copy">
+            <div class="project-meta"><span>LEARNING / AI WORKSPACE</span><span>03</span></div>
+            <h3 id="cognify-title">Cognify<span class="project-period">.</span></h3>
+            <p class="project-tagline">Less friction. More learning.</p>
+            <p class="project-description">Turn your notes into a focused study space. Upload learning material and create summaries, flashcards, quizzes, and slides—with an AI coach grounded in your notebook.</p>
+            <div class="tech-tags" aria-label="Built with"><span>Next.js</span><span>Gemini</span><span>PDF.js</span></div>
+            <div class="project-actions"><button class="text-action" data-project="cognify">Explore project <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button><a class="source-link" href="https://github.com/plut0000/Cognify" target="_blank" rel="noopener noreferrer">Source code ↗<span class="sr-only"> (opens in a new tab)</span></a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="about-section" id="about" aria-labelledby="about-title"><div class="container about-inner">
+      <div class="about-heading"><span class="eyebrow">02 / THE PERSON BEHIND THE PROJECTS</span><h2 id="about-title">A builder.<br>A curious <em>mind.</em></h2><div class="about-signature">Caleb Rong <span>↗</span></div></div>
+      <div class="about-copy"><p class="about-lead">I like starting with a question:<br><span>“Could this be a little easier?”</span></p><p>These projects explore that question in different ways: helping people communicate, finding the story behind a photo, and making a pile of notes easier to learn from.</p><p>They’re experiments in bringing thoughtful interfaces and useful technology together. The code is there to explore, too.</p><a class="text-action" href="https://github.com/plut0000" target="_blank" rel="noopener noreferrer">Follow the next experiment <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div>
+    </div></section>
+    <section class="closing container" aria-labelledby="closing-title"><span class="eyebrow">THERE’S ALWAYS ANOTHER IDEA.</span><div><h2 id="closing-title">See what’s <em>next.</em></h2><a class="button button-dark" href="https://github.com/plut0000" target="_blank" rel="noopener noreferrer">Find me on GitHub <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div></section>
+  </main>
+  <footer class="container footer"><a class="brand" href="#home"><span class="brand-mark small">c<span>•</span></span>Caleb Rong</a><span>Built with intention. Shared with curiosity.</span><a href="#home">Back to top ↑</a></footer>
+  <dialog id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-shell"><button class="dialog-close" aria-label="Close project details"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button><div id="dialog-content"></div></div></dialog>
+</body>
+</html>
