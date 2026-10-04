@@ -1,6 +1,6 @@
 # Caleb Rong — Portfolio
 
-A static portfolio featuring SignSpeak, Locus, and Cognify. Plain HTML and CSS: no JavaScript, dependencies, or build step.
+A static portfolio featuring SignSpeak, Locus, and Cognify. Built with HTML, CSS, JavaScript, and original SVG illustrations. No dependencies or build step are required.
 
 ## Preview locally
 
@@ -20,4 +20,4 @@ Import the repository and use:
 - Build command: leave empty
 - Output directory: **.** (the repository root), if required
 
-The entry point is `index.html`. Keep `styles.css` and the `assets/` folder beside it. The site uses system fonts and follows the visitor's light or dark mode setting.
+The entry point is `index.html`. Keep `styles.css`, `app.js`, and the `assets/` folder beside it. The site uses Google Fonts and links to the projects’ GitHub repositories and available demos.

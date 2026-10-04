@@ -3,107 +3,187 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <meta name="description" content="Caleb Rong builds web apps with computer vision and language models. Projects: SignSpeak, Locus, and Cognify.">
-  <title>Caleb Rong</title>
+  <meta name="theme-color" content="#f8f7f4">
+  <meta name="description" content="Projects by Caleb Rong: SignSpeak, an ASL translation prototype; Locus, a photo location explorer; and Cognify, an AI study workspace.">
+  <title>Caleb Rong — Projects</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Instrument+Serif:ital@1&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#work">Skip to projects</a>
+
   <header class="site-header">
-    <a class="name" href="./">Caleb Rong</a>
-    <nav aria-label="Main">
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="https://github.com/plut0000">GitHub</a>
-    </nav>
+    <div class="container nav-inner">
+      <a class="brand" href="#home" aria-label="Caleb Rong, home"><span class="brand-mark" aria-hidden="true">CR</span>Caleb Rong</a>
+      <nav aria-label="Main">
+        <a class="nav-link" href="#work">Work</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-github" href="https://github.com/plut0000" target="_blank" rel="noopener noreferrer">GitHub <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="intro">
-      <h1>Caleb Rong</h1>
-      <p>I build web apps that use computer vision and language models for everyday problems: communicating across ASL and English, working out where a photo was taken, and studying from your own notes. Here are three recent projects. The source for each is on GitHub.</p>
-    </section>
-
-    <section id="projects" aria-labelledby="projects-title">
-      <h2 class="section-title" id="projects-title">Projects</h2>
-
-      <article class="project" aria-labelledby="signspeak">
-        <div class="project-side">
-          <h3 id="signspeak">SignSpeak</h3>
-          <ul class="links">
-            <li><a href="https://signspeak-asl-poc.vercel.app/demo">Live demo</a></li>
-            <li><a href="https://github.com/plut0000/signspeak-asl-poc">Source</a></li>
-          </ul>
+    <section class="hero container" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Projects by Caleb Rong</p>
+        <h1 id="hero-title">Ideas, made <em>real.</em></h1>
+        <p class="hero-description">I build web apps with computer vision and AI: an ASL translator, a tool that works out where a photo was taken, and a study workspace built from your own notes.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#work">See the projects <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14m-6-6 6 6 6-6"/></svg></a>
+          <a class="button button-ghost" href="https://github.com/plut0000" target="_blank" rel="noopener noreferrer">GitHub profile<span class="sr-only"> (opens in a new tab)</span></a>
         </div>
-        <div class="project-body">
-          <p class="summary">ASL-to-English translation in the browser.</p>
-          <p>A proof of concept that reads American Sign Language from a webcam, then shows the English translation and reads it aloud.</p>
-          <ul>
-            <li>MediaPipe extracts pose and hand landmarks from the recording in the browser.</li>
-            <li>Short, isolated signs go through a 200-class BiLSTM model on ONNX Runtime, and Gemini cleans up the prediction. Longer clips fall back to video analysis.</li>
-            <li>The result shows the translation, a confidence score and which model path was used. It can be read aloud with the Web Speech API.</li>
-          </ul>
-          <p class="note">It handles isolated signs and is a feasibility test, not an interpreter.</p>
-          <p class="stack">Next.js · TypeScript · MediaPipe · ONNX&nbsp;Runtime · Gemini · Web&nbsp;Speech&nbsp;API</p>
-        </div>
-      </article>
-
-      <article class="project" aria-labelledby="locus">
-        <div class="project-side">
-          <h3 id="locus">Locus</h3>
-          <ul class="links">
-            <li><a href="https://github.com/plut0000/photo-geo-guess">Source</a></li>
-          </ul>
-        </div>
-        <div class="project-body">
-          <p class="summary">Estimates where a photo was taken.</p>
-          <p>Upload a photo and Locus places it on a map. It checks the file's metadata first and only guesses from visual clues when there's no GPS data.</p>
-          <ul>
-            <li>Reads EXIF GPS coordinates in the browser, converting HEIC files when it can.</li>
-            <li>Without GPS data, a server-side vision model estimates a location from architecture, signs and terrain.</li>
-            <li>The result appears on a Leaflet map with the model's reasoning and an uncertainty radius instead of a single exact pin.</li>
-          </ul>
-          <p class="note">EXIF lookup works without an API key. Visual guesses need an AI provider configured on the server.</p>
-          <p class="stack">Vite · React · TypeScript · Leaflet · exifr · Express</p>
-        </div>
-      </article>
-
-      <article class="project" aria-labelledby="cognify">
-        <div class="project-side">
-          <h3 id="cognify">Cognify</h3>
-          <ul class="links">
-            <li><a href="https://cognify-alpha.vercel.app">Live app</a></li>
-            <li><a href="https://github.com/plut0000/Cognify">Source</a></li>
-          </ul>
-        </div>
-        <div class="project-body">
-          <p class="summary">Study tools generated from your own notes.</p>
-          <p>Upload your notes and Cognify turns them into study material. A chat assistant answers questions using the same notebook.</p>
-          <ul>
-            <li>Upload PDF, TXT or Markdown files and organize them into notebooks.</li>
-            <li>Generate summaries, flashcard decks, practice quizzes at a chosen difficulty, and slide decks with speaker notes.</li>
-            <li>Ask a Gemini-based study coach questions. Its answers come from the notebook's contents.</li>
-          </ul>
-          <p class="note">Sign-in uses Google through Auth.js.</p>
-          <p class="stack">Next.js · TypeScript · Gemini · PDF.js · Auth.js</p>
-        </div>
-      </article>
-    </section>
-
-    <section id="about" aria-labelledby="about-title">
-      <h2 class="section-title" id="about-title">About</h2>
-      <div class="about">
-        <p>Each of these projects started with the same question: could this be a little easier? I like work that sits between a useful model and an interface people can actually use.</p>
-        <p>I also care about tools being honest about their limits. That's why SignSpeak shows its confidence and Locus draws a radius instead of claiming an exact spot.</p>
-        <p>I post new work on <a href="https://github.com/plut0000">GitHub</a>.</p>
       </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-backdrop"></div>
+        <div class="mini-card mini-sign">
+          <div class="mini-card-heading"><span class="mini-dot"></span>SignSpeak</div>
+          <div class="sign-symbol"><svg viewBox="0 0 100 100"><path d="M33 66 27 47q-3-8 4-9 4-1 7 7l3 7V26q0-8 7-8t7 8v22-29q0-8 7-8t7 8v29-22q0-8 7-8t7 8v26-13q0-7 6-7t6 7v23q0 28-27 31-24 1-35-19Z"/><circle cx="48" cy="23" r="3"/><circle cx="62" cy="16" r="3"/><circle cx="77" cy="22" r="3"/><circle cx="89" cy="37" r="3"/></svg></div>
+          <div class="mini-caption">ASL → English</div>
+        </div>
+        <div class="mini-card mini-locus">
+          <div class="mini-card-heading"><span class="mini-dot"></span>Locus</div>
+          <div class="mini-map"><div class="map-target"><svg viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/></svg></div></div>
+          <div class="mini-caption">Photo → place</div>
+        </div>
+        <div class="mini-card mini-cognify">
+          <div class="mini-card-heading"><span class="mini-dot"></span>Cognify</div>
+          <div class="mini-study"><div class="study-lines"><i></i><i></i><i></i></div><span class="study-check"><svg viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg></span></div>
+          <div class="mini-caption">Notes → study set</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="work-section container" id="work" aria-labelledby="work-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Selected work</p>
+          <h2 id="work-title">Three projects, three questions</h2>
+        </div>
+        <p>Can a camera help translate sign language? Where was this photo taken? Can studying start from your own notes? Open a project to see how it works.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter projects by focus">
+        <button class="filter active" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter" data-filter="accessibility" aria-pressed="false">Accessibility</button>
+        <button class="filter" data-filter="exploration" aria-pressed="false">Exploration</button>
+        <button class="filter" data-filter="learning" aria-pressed="false">Learning</button>
+      </div>
+      <p class="sr-only" id="filter-status" aria-live="polite">Showing all 3 projects.</p>
+
+      <div class="project-list">
+        <article class="project-card signspeak" data-category="accessibility" aria-labelledby="signspeak-title">
+          <div class="project-art sign-art">
+            <img src="assets/signspeak-art.svg" alt="Illustration of a hand tracked with connected landmarks" width="760" height="560">
+            <div class="art-topbar"><span class="app-wordmark"><svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M5 15V9m5 10V5m5 12V7m5 7v-4"/></svg>SignSpeak</span><span class="preview-state"><i></i>ASL → English</span></div>
+            <div class="translation-card" aria-hidden="true"><span>Translation</span><p>From movement to meaning.</p><div class="waveform"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+          </div>
+          <div class="project-copy">
+            <p class="project-meta">Accessibility · Computer vision</p>
+            <h3 id="signspeak-title">SignSpeak</h3>
+            <p class="project-tagline">ASL-to-English translation in the browser.</p>
+            <p class="project-description">A proof of concept that reads American Sign Language from a webcam, then shows the English translation and reads it aloud.</p>
+            <ul class="tech-tags" aria-label="Built with"><li>Next.js</li><li>MediaPipe</li><li>ONNX</li><li>Gemini</li></ul>
+            <div class="project-actions">
+              <button class="text-action" data-project="signspeak">How it works <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+              <div class="project-links">
+                <a class="source-link" href="https://signspeak-asl-poc.vercel.app/demo" target="_blank" rel="noopener noreferrer">Live demo<span class="sr-only"> (opens in a new tab)</span></a>
+                <a class="source-link" href="https://github.com/plut0000/signspeak-asl-poc" target="_blank" rel="noopener noreferrer">Source<span class="sr-only"> (opens in a new tab)</span></a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card locus" data-category="exploration" aria-labelledby="locus-title">
+          <div class="project-art locus-art">
+            <img src="assets/locus-art.svg" alt="Illustrated map with a location pin and uncertainty circle" width="760" height="560">
+            <div class="art-topbar"><span class="app-wordmark"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/></svg>Locus</span><span class="preview-state">Photo → place</span></div>
+            <div class="location-card" aria-hidden="true"><span class="location-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/><path d="M12 1v4m0 14v4M1 12h4m14 0h4"/></svg></span><div><span>Best guess</span><p>Estimated from visual clues</p></div></div>
+          </div>
+          <div class="project-copy">
+            <p class="project-meta">Exploration · Visual AI</p>
+            <h3 id="locus-title">Locus</h3>
+            <p class="project-tagline">Estimates where a photo was taken.</p>
+            <p class="project-description">Drop in a photo and Locus places it on a map. It reads embedded GPS data when there is some, falls back to a vision model when there isn't, and shows an uncertainty radius instead of pretending to be exact.</p>
+            <ul class="tech-tags" aria-label="Built with"><li>React</li><li>TypeScript</li><li>Leaflet</li><li>Express</li></ul>
+            <div class="project-actions">
+              <button class="text-action" data-project="locus">How it works <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+              <div class="project-links">
+                <a class="source-link" href="https://github.com/plut0000/photo-geo-guess" target="_blank" rel="noopener noreferrer">Source<span class="sr-only"> (opens in a new tab)</span></a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card cognify" data-category="learning" aria-labelledby="cognify-title">
+          <div class="project-art cognify-art">
+            <div class="art-topbar"><span class="app-wordmark"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5Zm16 0A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5Z"/></svg>Cognify</span><span class="preview-state">Notes → study set</span></div>
+            <div class="study-window" aria-hidden="true">
+              <div class="study-window-bar"><i></i><i></i><i></i><span>Biology notes</span></div>
+              <div class="study-window-body">
+                <div class="study-sidebar"><span class="active">Notebook</span><span>Flashcards</span><span>Quizzes</span><span>Slides</span></div>
+                <div class="study-content">
+                  <div class="flashcard"><div><span>Flashcard</span><span>1 / 8</span></div><p>What powers the cell?</p></div>
+                  <div class="study-progress"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-copy">
+            <p class="project-meta">Learning · AI workspace</p>
+            <h3 id="cognify-title">Cognify</h3>
+            <p class="project-tagline">Study tools generated from your own notes.</p>
+            <p class="project-description">Upload notes and get summaries, flashcards, quizzes and slides, plus a study coach that answers questions using the same notebook.</p>
+            <ul class="tech-tags" aria-label="Built with"><li>Next.js</li><li>Gemini</li><li>PDF.js</li><li>Auth.js</li></ul>
+            <div class="project-actions">
+              <button class="text-action" data-project="cognify">How it works <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+              <div class="project-links">
+                <a class="source-link" href="https://cognify-alpha.vercel.app" target="_blank" rel="noopener noreferrer">Live app<span class="sr-only"> (opens in a new tab)</span></a>
+                <a class="source-link" href="https://github.com/plut0000/Cognify" target="_blank" rel="noopener noreferrer">Source<span class="sr-only"> (opens in a new tab)</span></a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="about-section" id="about" aria-labelledby="about-title">
+      <div class="container about-inner">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">I like starting with one question: could this be a little easier?</h2>
+        </div>
+        <div class="about-copy">
+          <p>These projects answer it in different ways: helping people communicate across ASL and English, finding the story behind a photo, and turning a pile of notes into something you can study from.</p>
+          <p>I care about tools that are honest about their limits. SignSpeak shows how confident it is, and Locus draws a radius instead of claiming an exact spot. All of the code is public if you want to look under the hood.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing container" aria-labelledby="closing-title">
+      <div>
+        <h2 id="closing-title">See what I build next</h2>
+        <p>New projects and experiments go up on GitHub first.</p>
+      </div>
+      <a class="button button-dark" href="https://github.com/plut0000" target="_blank" rel="noopener noreferrer">Follow on GitHub <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <span>Caleb Rong</span>
-    <a href="https://github.com/plut0000">github.com/plut0000</a>
+  <footer class="container footer">
+    <span>© 2026 Caleb Rong</span>
+    <a href="#home">Back to top ↑</a>
   </footer>
+
+  <dialog id="project-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-shell">
+      <button class="dialog-close" aria-label="Close project details"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+      <div id="dialog-content"></div>
+    </div>
+  </dialog>
 </body>
 </html>
