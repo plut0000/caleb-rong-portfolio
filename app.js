@@ -37,25 +37,6 @@ const projects = {
   }
 };
 
-const filterButtons = [...document.querySelectorAll('[data-filter]')];
-const cards = [...document.querySelectorAll('.project-card')];
-filterButtons.forEach(button => button.addEventListener('click', () => {
-  const selected = button.dataset.filter;
-  filterButtons.forEach(filter => {
-    const active = filter === button;
-    filter.classList.toggle('active', active);
-    filter.setAttribute('aria-pressed', String(active));
-  });
-  let count = 0;
-  cards.forEach(card => {
-    card.hidden = selected !== 'all' && card.dataset.category !== selected;
-    if (!card.hidden) count++;
-  });
-  document.getElementById('filter-status').textContent = selected === 'all'
-    ? `Showing all ${count} projects.`
-    : `Showing ${count} ${selected} project${count === 1 ? '' : 's'}.`;
-}));
-
 const dialog = document.getElementById('project-dialog');
 const dialogContent = document.getElementById('dialog-content');
 const closeButton = dialog.querySelector('.dialog-close');
@@ -68,6 +49,15 @@ function createElement(tag, className, text) {
   return element;
 }
 
+function externalLink(className, text, href) {
+  const link = createElement('a', className, text);
+  link.href = href;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.append(createElement('span', 'sr-only', ' (opens in a new tab)'));
+  return link;
+}
+
 document.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => {
   const project = projects[button.dataset.project];
   opener = button;
@@ -75,25 +65,20 @@ document.querySelectorAll('[data-project]').forEach(button => button.addEventLis
   const heading = createElement('h2', '', project.title);
   heading.id = 'dialog-title';
   const intro = createElement('p', 'dialog-intro', project.intro);
-  const workflowHeading = createElement('h3', '', 'How it works');
-  const steps = createElement('ol');
+  const steps = createElement('ol', 'dialog-steps');
   project.steps.forEach(step => steps.append(createElement('li', '', step)));
   const note = createElement('p', 'dialog-note', project.note);
-  const stackHeading = createElement('h3', '', 'Built with');
-  const stack = createElement('ul', 'tech-tags');
+  const stack = createElement('ul', 'tags');
   project.stack.forEach(tech => stack.append(createElement('li', '', tech)));
   const actions = createElement('div', 'dialog-actions');
-  if (project.demo) {
-    const demo = createElement('a', 'button button-dark', project.demoText);
-    demo.href = project.demo; demo.target = '_blank'; demo.rel = 'noopener noreferrer';
-    demo.append(createElement('span', 'sr-only', ' (opens in a new tab)'));
-    actions.append(demo);
-  }
-  const repo = createElement('a', project.demo ? 'source-link' : 'button button-dark', 'View source on GitHub');
-  repo.href = project.repo; repo.target = '_blank'; repo.rel = 'noopener noreferrer';
-  repo.append(createElement('span', 'sr-only', ' (opens in a new tab)'));
-  actions.append(repo);
-  dialogContent.replaceChildren(eyebrow, heading, intro, workflowHeading, steps, note, stackHeading, stack, actions);
+  if (project.demo) actions.append(externalLink('button button-primary', project.demoText, project.demo));
+  actions.append(externalLink(project.demo ? 'button button-secondary' : 'button button-primary', 'View source on GitHub', project.repo));
+  dialogContent.replaceChildren(
+    eyebrow, heading, intro,
+    createElement('h3', '', 'How it works'), steps, note,
+    createElement('h3', '', 'Built with'), stack,
+    actions
+  );
   document.body.classList.add('body-modal');
   dialog.showModal();
   dialog.scrollTop = 0;
