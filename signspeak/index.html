@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfbfd">
+  <title>SignSpeak — Caleb Rong</title>
+  <meta name="description" content="SignSpeak reads American Sign Language from a webcam with a 200-class BiLSTM, turns it into English with Gemini, and speaks it aloud.">
+  <meta property="og:title" content="SignSpeak — Caleb Rong">
+  <meta property="og:description" content="Sign in ASL. Read English. Hear it spoken.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="globalnav" aria-label="Global">
+    <ul class="globalnav-list">
+      <li><a class="brand" href="/">Caleb Rong</a></li>
+      <li><a href="/signspeak/" aria-current="page">SignSpeak</a></li>
+      <li><a href="/locus/">Locus</a></li>
+      <li><a href="/cognify/">Cognify</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <nav class="localnav" aria-label="SignSpeak">
+    <div class="container localnav-inner">
+      <a class="localnav-title" href="#top">SignSpeak</a>
+      <div class="localnav-menu">
+        <a href="#overview">Overview</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#specs">Tech specs</a>
+        <a class="button button-small" href="https://signspeak-asl-poc.vercel.app/demo" target="_blank" rel="noopener noreferrer">Try demo<span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="project-hero dark" id="top" aria-labelledby="page-title">
+      <div class="container">
+        <p class="eyebrow">Accessibility · Computer vision</p>
+        <h1 class="headline-hero" id="page-title">SignSpeak</h1>
+        <p class="subhead">Sign in ASL. Read English. Hear it spoken.</p>
+        <div class="ctas">
+          <a class="button" href="https://signspeak-asl-poc.vercel.app/demo" target="_blank" rel="noopener noreferrer">Try the demo<span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="button button-secondary" href="https://github.com/plut0000/signspeak-asl-poc" target="_blank" rel="noopener noreferrer">View on GitHub<span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+      </div>
+      <div class="project-hero-media">
+        <div class="frame">
+          <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <img src="/assets/img/signspeak-landing.webp" alt="SignSpeak landing page explaining the webcam to spoken English loop." width="2880" height="1800">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="overview" aria-label="Overview">
+      <div class="container">
+        <p class="intro reveal">SignSpeak is a proof of concept I built for DECA's Entrepreneurship Innovation Plan. <strong>Someone signs on camera</strong>, a dedicated model reads the signs, and the browser <strong>speaks the English translation</strong> out loud.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="highlights-title">
+      <div class="container">
+        <div class="section-header center reveal">
+          <h2 class="headline-section" id="highlights-title">The numbers.</h2>
+          <p>A 200-class BiLSTM trained on ASL Citizen keypoints, then fine-tuned with reinforcement learning.</p>
+        </div>
+        <dl class="stats reveal">
+          <div class="stat"><dt>ASL signs in the vocabulary</dt><dd>200</dd></div>
+          <div class="stat"><dt>Top-1 test accuracy</dt><dd>90.3<small>%</small></dd></div>
+          <div class="stat"><dt>Top-5 test accuracy</dt><dd>98.1<small>%</small></dd></div>
+          <div class="stat"><dt>Longest clip, split at pauses</dt><dd>30<small>s</small></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="headline-section" id="how-title">How it works.</h2>
+          <p>Capture, classification and speech are separate steps, so each one can be shown and explained on its own.</p>
+        </div>
+        <div class="cards reveal">
+          <article class="card">
+            <p class="card-step">Step 1</p>
+            <h3>Track the signer.</h3>
+            <p>MediaPipe Pose and Hands run in the browser and track 75 body and hand landmarks in every frame of the webcam clip.</p>
+          </article>
+          <article class="card">
+            <p class="card-step">Step 2</p>
+            <h3>Read the sign.</h3>
+            <p>The landmarks are normalized, resampled and passed to a BiLSTM on the server through ONNX Runtime. It only answers when the confidence checks pass.</p>
+          </article>
+          <article class="card">
+            <p class="card-step">Step 3</p>
+            <h3>Say it in English.</h3>
+            <p>Gemini turns the recognized signs into a natural English sentence, and the Web Speech API reads it aloud with a replay button.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="demo-title">
+      <div class="container">
+        <div class="section-header center reveal">
+          <h2 class="headline-section" id="demo-title">The camera demo.</h2>
+          <p>Sign one word, or several with a short pause after each. The result shows which path produced it: the dedicated model or Gemini video.</p>
+        </div>
+      </div>
+      <figure class="showcase reveal">
+        <div class="frame">
+          <img src="/assets/img/signspeak-demo.webp" alt="SignSpeak camera studio with a camera panel, Start signing button, and an English translation panel with Replay voice." width="2208" height="1500" loading="lazy">
+        </div>
+      </figure>
+    </section>
+
+    <section class="section" aria-labelledby="hood-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="headline-section" id="hood-title">Under the hood.</h2>
+        </div>
+        <div class="cards two reveal">
+          <article class="card">
+            <h3>Confidence gates.</h3>
+            <p>A prediction is accepted only if the top score is at least 55%, it leads the runner-up by 0.15, and entropy is low. Otherwise the clip goes to Gemini video instead of showing a bad guess.</p>
+          </article>
+          <article class="card">
+            <h3>Several signs in a row.</h3>
+            <p>Clips up to about 30 seconds are split wherever the hands pause for 400 ms. Each segment goes through the same checks, and the sentence is only built if more than half of them pass.</p>
+          </article>
+          <article class="card">
+            <h3>The model.</h3>
+            <p>A linear layer, a two-layer bidirectional LSTM and attention pooling over 450 features per frame. Reinforcement learning lifted test accuracy from about 87.3% to 90.3%.</p>
+          </article>
+          <article class="card">
+            <h3>Honest limits.</h3>
+            <p>It reads isolated signs, not fluent conversation, and accuracy depends on lighting and framing. It is a feasibility demo, not a substitute for a human interpreter.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="specs" aria-labelledby="specs-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="headline-section" id="specs-title">Tech specs.</h2>
+        </div>
+        <dl class="specs reveal">
+          <div><dt>Frontend</dt><dd>Next.js 16, React 19, TypeScript, Tailwind CSS</dd></div>
+          <div><dt>Vision</dt><dd>MediaPipe Tasks (Pose and Hands) in the browser</dd></div>
+          <div><dt>Model</dt><dd>200-class BiLSTM with attention pooling, served with ONNX Runtime on Node</dd></div>
+          <div><dt>Training data</dt><dd>ASL Citizen keypoints, supervised training then reinforcement learning</dd></div>
+          <div><dt>Language</dt><dd>Google Gemini for gloss-to-English and the full-video fallback</dd></div>
+          <div><dt>Speech</dt><dd>Web Speech API</dd></div>
+          <div><dt>Hosting</dt><dd>Vercel</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="cta-band" aria-labelledby="cta-title">
+      <div class="container reveal">
+        <h2 class="headline" id="cta-title">Try SignSpeak.</h2>
+        <div class="ctas">
+          <a class="button" href="https://signspeak-asl-poc.vercel.app/demo" target="_blank" rel="noopener noreferrer">Open the camera demo<span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="button button-secondary" href="https://github.com/plut0000/signspeak-asl-poc" target="_blank" rel="noopener noreferrer">View source<span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+      </div>
+    </section>
+
+    <div class="container next-project">
+      <div><span>Next project</span><a class="more" href="/locus/">Locus</a></div>
+      <a class="more" href="/">All projects</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="/signspeak/">SignSpeak</a></li>
+        <li><a href="/locus/">Locus</a></li>
+        <li><a href="/cognify/">Cognify</a></li>
+        <li><a href="https://www.linkedin.com/in/caleb-rong-519326432/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/plut0000" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+      <p>Copyright © 2026 Caleb Rong. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

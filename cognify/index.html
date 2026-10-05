@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfbfd">
+  <title>Cognify — Caleb Rong</title>
+  <meta name="description" content="Cognify is an open-source AI study workspace that turns notes into grounded summaries, flashcards, quizzes, slideshows and tutoring.">
+  <meta property="og:title" content="Cognify — Caleb Rong">
+  <meta property="og:description" content="Turn class notes into study sessions.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="globalnav" aria-label="Global">
+    <ul class="globalnav-list">
+      <li><a class="brand" href="/">Caleb Rong</a></li>
+      <li><a href="/signspeak/">SignSpeak</a></li>
+      <li><a href="/locus/">Locus</a></li>
+      <li><a href="/cognify/" aria-current="page">Cognify</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <nav class="localnav" aria-label="Cognify">
+    <div class="container localnav-inner">
+      <a class="localnav-title" href="#top">Cognify</a>
+      <div class="localnav-menu">
+        <a href="#overview">Overview</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#specs">Tech specs</a>
+        <a class="button button-small" href="https://cognify-alpha.vercel.app" target="_blank" rel="noopener noreferrer">Open app<span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="project-hero section-alt" id="top" aria-labelledby="page-title">
+      <div class="container">
+        <p class="eyebrow">Learning · AI workspace</p>
+        <h1 class="headline-hero" id="page-title">Cognify</h1>
+        <p class="subhead">Turn class notes into study sessions that work.</p>
+        <div class="ctas">
+          <a class="button" href="https://cognify-alpha.vercel.app" target="_blank" rel="noopener noreferrer">Open the app<span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="button button-secondary" href="https://github.com/plut0000/Cognify" target="_blank" rel="noopener noreferrer">View on GitHub<span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+      </div>
+      <div class="project-hero-media">
+        <div class="frame">
+          <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <img src="/assets/img/cognify-workspace.webp" alt="Cognify study workspace with a notebook summary, study tools and the study coach panel." width="2880" height="1800">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="overview" aria-label="Overview">
+      <div class="container">
+        <p class="intro reveal">Cognify is an open-source AI study workspace. Upload your notes and it builds <strong>summaries, flashcards, quizzes and slideshows</strong>, plus a study coach, all <strong>grounded in your own material</strong>.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-header center reveal">
+          <h2 class="headline-section" id="gallery-title">One source. Every way to study it.</h2>
+          <p>Make as many flashcard decks and quizzes as you need from the same notebook, at the length and difficulty you choose.</p>
+        </div>
+        <div class="gallery reveal">
+          <figure>
+            <div class="frame"><img src="/assets/img/cognify-flashcards.webp" alt="Cognify flashcard: What should you remember about electrons?" width="2880" height="1800" loading="lazy"></div>
+            <figcaption><strong>Flashcard decks</strong>Review a card, reveal the answer, and mark what you knew.</figcaption>
+          </figure>
+          <figure>
+            <div class="frame"><img src="/assets/img/cognify-quiz.webp" alt="Cognify practice quiz with four multiple-choice answers." width="2880" height="1800" loading="lazy"></div>
+            <figcaption><strong>Practice quizzes</strong>Multiple-choice questions with selectable difficulty and length.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="headline-section" id="how-title">How it works.</h2>
+          <p>A focused study loop that starts from the student's own notes.</p>
+        </div>
+        <div class="cards reveal">
+          <article class="card">
+            <p class="card-step">Step 1</p>
+            <h3>Bring your notes.</h3>
+            <p>Upload a PDF, TXT or Markdown file, or start with the sample notebook. Cognify extracts and structures the source.</p>
+          </article>
+          <article class="card">
+            <p class="card-step">Step 2</p>
+            <h3>Generate study tools.</h3>
+            <p>Server-side AI routes create summaries, flashcard decks, quizzes and slideshows with speaker notes, all tied to the active notebook.</p>
+          </article>
+          <article class="card">
+            <p class="card-step">Step 3</p>
+            <h3>Practice and ask.</h3>
+            <p>Review cards, present slides, take quizzes, or ask the study coach a question it answers from the same notes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="hood-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="headline-section" id="hood-title">Under the hood.</h2>
+        </div>
+        <div class="cards two reveal">
+          <article class="card">
+            <h3>Grounded generation.</h3>
+            <p>Every summary, card, question and coach answer is generated from the active notebook, through server-only API routes.</p>
+          </article>
+          <article class="card">
+            <h3>Less repetition.</h3>
+            <p>Previously generated sets are sent as history, so new decks and quizzes cover fresh facts instead of repeating the same ones.</p>
+          </article>
+          <article class="card">
+            <h3>Secure sign-in.</h3>
+            <p>Google OAuth through Auth.js, with API keys and secrets kept on the server and never shipped to the browser.</p>
+          </article>
+          <article class="card">
+            <h3>Open source.</h3>
+            <p>MIT licensed, with a contributor guide, so it can also serve as a reference for building educational AI products.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="specs" aria-labelledby="specs-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="headline-section" id="specs-title">Tech specs.</h2>
+        </div>
+        <dl class="specs reveal">
+          <div><dt>Application</dt><dd>Next.js 16 App Router, React 19, TypeScript</dd></div>
+          <div><dt>Documents</dt><dd>PDF.js, with PDF, TXT and Markdown support</dd></div>
+          <div><dt>AI</dt><dd>Google Gemini through server-only API routes</dd></div>
+          <div><dt>Authentication</dt><dd>Auth.js with Google OAuth</dd></div>
+          <div><dt>Hosting</dt><dd>Vercel</dd></div>
+          <div><dt>License</dt><dd>MIT</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="cta-band" aria-labelledby="cta-title">
+      <div class="container reveal">
+        <h2 class="headline" id="cta-title">Start studying with Cognify.</h2>
+        <div class="ctas">
+          <a class="button" href="https://cognify-alpha.vercel.app" target="_blank" rel="noopener noreferrer">Open the app<span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="button button-secondary" href="https://github.com/plut0000/Cognify" target="_blank" rel="noopener noreferrer">View source<span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+      </div>
+    </section>
+
+    <div class="container next-project">
+      <div><span>Next project</span><a class="more" href="/signspeak/">SignSpeak</a></div>
+      <a class="more" href="/">All projects</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="/signspeak/">SignSpeak</a></li>
+        <li><a href="/locus/">Locus</a></li>
+        <li><a href="/cognify/">Cognify</a></li>
+        <li><a href="https://www.linkedin.com/in/caleb-rong-519326432/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/plut0000" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+      <p>Copyright © 2026 Caleb Rong. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
