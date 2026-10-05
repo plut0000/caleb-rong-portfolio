@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfbfd">
+  <title>Locus — Caleb Rong</title>
+  <meta name="description" content="Locus estimates where a photo was taken, using EXIF GPS when it exists and a vision model when it doesn't, with an honest uncertainty circle on the map.">
+  <meta property="og:title" content="Locus — Caleb Rong">
+  <meta property="og:description" content="Where was this photo taken?">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="globalnav" aria-label="Global">
+    <ul class="globalnav-list">
+      <li><a class="brand" href="/">Caleb Rong</a></li>
+      <li><a href="/signspeak/">SignSpeak</a></li>
+      <li><a href="/locus/" aria-current="page">Locus</a></li>
+      <li><a href="/cognify/">Cognify</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <nav class="localnav" aria-label="Locus">
+    <div class="container localnav-inner">
+      <a class="localnav-title" href="#top">Locus</a>
+      <div class="localnav-menu">
+        <a href="#overview">Overview</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#specs">Tech specs</a>
+        <a class="button button-small" href="https://github.com/plut0000/photo-geo-guess" target="_blank" rel="noopener noreferrer">View code<span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="project-hero dark" id="top" aria-labelledby="page-title">
+      <div class="container">
+        <p class="eyebrow">Exploration · Visual AI</p>
+        <h1 class="headline-hero" id="page-title">Locus</h1>
+        <p class="subhead">Where was this photo taken?</p>
+        <div class="ctas">
+          <a class="button" href="https://github.com/plut0000/photo-geo-guess" target="_blank" rel="noopener noreferrer">View on GitHub<span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+      </div>
+      <div class="project-hero-media">
+        <div class="frame">
+          <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <img src="/assets/img/locus-home.webp" alt="Locus upload screen: Where was this taken? Drop a photo here." width="2880" height="1520">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="overview" aria-label="Overview">
+      <div class="container">
+        <p class="intro reveal">Drop in a photo and Locus gives a <strong>best-guess location on an interactive map</strong>. It uses the photo's own GPS data when it can, and when it can't, it says so with <strong>an honest uncertainty circle</strong> instead of a falsely precise pin.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="highlights-title">
+      <div class="container">
+        <div class="section-header center reveal">
+          <h2 class="headline-section" id="highlights-title">Precise when it can be. Honest when it can't.</h2>
+        </div>
+        <dl class="stats reveal">
+          <div class="stat"><dt>Radius when the photo has GPS</dt><dd>1.5–10<small>km</small></dd></div>
+          <div class="stat"><dt>Radius for a visual guess</dt><dd>10–30<small>km</small></dd></div>
+          <div class="stat"><dt>Vision providers supported</dt><dd>3</dd></div>
+          <div class="stat"><dt>API keys needed for GPS photos</dt><dd>0</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="headline-section" id="how-title">How it works.</h2>
+          <p>Metadata first, visual clues second, and a map that shows how sure the answer is.</p>
+        </div>
+        <div class="cards reveal">
+          <article class="card">
+            <p class="card-step">Step 1</p>
+            <h3>Read the file.</h3>
+            <p>The browser parses EXIF data with exifr and converts HEIC photos when it can. Photos with GPS skip the AI entirely.</p>
+          </article>
+          <article class="card">
+            <p class="card-step">Step 2</p>
+            <h3>Find the place.</h3>
+            <p>GPS coordinates are reverse-geocoded with OpenStreetMap. Without GPS, a compressed image goes to a vision model that reads architecture, vegetation, signs, vehicles and terrain.</p>
+          </article>
+          <article class="card">
+            <p class="card-step">Step 3</p>
+            <h3>Show the uncertainty.</h3>
+            <p>The result appears on a Leaflet satellite map with a short rationale. The circle grows from 10 km to 30 km as the model's confidence drops.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="hood-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="headline-section" id="hood-title">Under the hood.</h2>
+        </div>
+        <div class="cards two reveal">
+          <article class="card">
+            <h3>Private by design.</h3>
+            <p>GPS coordinates are never sent to a vision model, and API keys stay on the server. Only non-GPS hints like capture time, camera and location tags go along with the image.</p>
+          </article>
+          <article class="card">
+            <h3>Works with any of three models.</h3>
+            <p>The server can call OpenAI, Anthropic or Gemini, whichever key is configured. A free Gemini key is enough for personal use.</p>
+          </article>
+          <article class="card">
+            <h3>Recovers from bad replies.</h3>
+            <p>Models are asked for coordinates first, so a cut-off answer still keeps the location. Missing coordinates trigger one retry, and quota limits show a plain message.</p>
+          </article>
+          <article class="card">
+            <h3>Tested.</h3>
+            <p>Unit tests cover the radius math, metadata parsing, JSON recovery from partial replies and each provider's requests.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="specs" aria-labelledby="specs-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="headline-section" id="specs-title">Tech specs.</h2>
+        </div>
+        <dl class="specs reveal">
+          <div><dt>Frontend</dt><dd>Vite, React, TypeScript</dd></div>
+          <div><dt>Map</dt><dd>Leaflet with Esri World Imagery tiles</dd></div>
+          <div><dt>Metadata</dt><dd>exifr, with heic2any for HEIC photos</dd></div>
+          <div><dt>Backend</dt><dd>Express locally, Vercel Functions in production</dd></div>
+          <div><dt>Vision models</dt><dd>OpenAI, Anthropic or Google Gemini</dd></div>
+          <div><dt>Geocoding</dt><dd>OpenStreetMap Nominatim</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="cta-band" aria-labelledby="cta-title">
+      <div class="container reveal">
+        <h2 class="headline" id="cta-title">Explore Locus.</h2>
+        <div class="ctas">
+          <a class="button" href="https://github.com/plut0000/photo-geo-guess" target="_blank" rel="noopener noreferrer">View source on GitHub<span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+      </div>
+    </section>
+
+    <div class="container next-project">
+      <div><span>Next project</span><a class="more" href="/cognify/">Cognify</a></div>
+      <a class="more" href="/">All projects</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="/signspeak/">SignSpeak</a></li>
+        <li><a href="/locus/">Locus</a></li>
+        <li><a href="/cognify/">Cognify</a></li>
+        <li><a href="https://www.linkedin.com/in/caleb-rong-519326432/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/plut0000" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+      <p>Copyright © 2026 Caleb Rong. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
