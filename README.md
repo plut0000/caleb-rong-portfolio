@@ -10,6 +10,7 @@ cognify/index.html    Cognify project page
 404.html              Not-found page
 styles.css            Shared styles
 assets/img/           Screenshots of each app (WebP)
+assets/og/            Link preview images (1200×630) for each page
 assets/fonts/         Inter (SIL Open Font License); Apple devices use SF Pro instead
 assets/site.js        Scroll fade-in
 ```
@@ -31,3 +32,7 @@ Import the repository with framework preset **Other**, no build command, and the
 ## Updating screenshots
 
 The images in `assets/img/` were captured from each app running locally at 1440×900 with 2× pixel density and saved as WebP. Replace a file with the same name and dimensions to update it.
+
+## Link previews
+
+Each page has Open Graph and Twitter card tags, so pasting a link into iMessage, LinkedIn, Slack or Discord shows a preview image from `assets/og/`. The tags use absolute URLs on `https://caleb-rong-portfolio.vercel.app`; update them if the site moves to a custom domain. Some apps cache previews, so a change can take a while to show up for a link that was already shared.
