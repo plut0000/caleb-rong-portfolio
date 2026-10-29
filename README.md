@@ -1,12 +1,13 @@
 # Caleb Rong — Portfolio
 
-A static portfolio with a home page and a page for each project: SignSpeak, Locus and Cognify. Plain HTML and CSS, plus a few lines of JavaScript for scroll animations. No dependencies or build step.
+A static portfolio with a home page and a page for each project: SignSpeak, Locus, Cognify and CallCheck. Plain HTML and CSS, plus a few lines of JavaScript for scroll animations. No dependencies or build step.
 
 ```
 index.html            Home page
 signspeak/index.html  SignSpeak project page
 locus/index.html      Locus project page
 cognify/index.html    Cognify project page
+callcheck/index.html  CallCheck project page
 404.html              Not-found page
 styles.css            Shared styles
 assets/img/           Screenshots of each app (WebP)

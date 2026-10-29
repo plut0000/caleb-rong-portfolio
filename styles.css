@@ -980,6 +980,10 @@ img {
     display: none;
   }
 
+  .globalnav a {
+    padding: 0 6px;
+  }
+
   .next-project a {
     font-size: 24px;
   }
