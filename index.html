@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fbfbfd">
+  <meta name="theme-color" content="#ffffff">
   <title>Caleb Rong — Portfolio</title>
   <meta name="description" content="Portfolio of Caleb Rong: SignSpeak (ASL to spoken English), Locus (photo geolocation), Cognify (AI study workspace) and CallCheck (phone mystery shopping).">
   <meta property="og:title" content="Caleb Rong — Portfolio">
@@ -19,127 +19,164 @@
   <link rel="canonical" href="https://www.caleb-rong.com/">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-  <link rel="preload" href="/assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/AtkinsonHyperlegibleNext-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles.css">
-  <script src="/assets/site.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <nav class="globalnav sticky" aria-label="Global">
-    <ul class="globalnav-list">
-      <li><a class="brand" href="/">Caleb Rong</a></li>
-      <li><a href="/signspeak/">SignSpeak</a></li>
-      <li><a href="/locus/">Locus</a></li>
-      <li><a href="/cognify/">Cognify</a></li>
-      <li><a href="/callcheck/">CallCheck</a></li>
-      <li class="hide-small"><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <header class="site-header">
+    <nav class="wrap site-nav" aria-label="Global">
+      <a class="brand" href="/">Caleb Rong</a>
+      <ul class="nav-links">
+        <li><a href="/signspeak/">SignSpeak</a></li>
+        <li><a href="/locus/">Locus</a></li>
+        <li><a href="/cognify/">Cognify</a></li>
+        <li><a href="/callcheck/">CallCheck</a></li>
+        <li class="hide-small"><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main id="main">
-    <section class="home-hero" aria-labelledby="hero-title">
-      <div class="container">
-        <p class="eyebrow">Caleb Rong</p>
-        <h1 class="headline-hero" id="hero-title">Portfolio</h1>
-        <p class="subhead">Software projects in computer vision and applied AI, from the model to the interface.</p>
-        <div class="ctas">
-          <a class="button" href="#projects">View projects</a>
-          <a class="button button-secondary" href="https://www.linkedin.com/in/calebrong/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
-        </div>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <h1 class="hero-lead" id="hero-title">I'm Caleb Rong. I use computer vision and applied AI to build software that turns</h1>
+        <ul class="turns">
+          <li class="signspeak"><a href="/signspeak/"><span class="turn-phrase">sign language into speech</span><span class="turn-name">SignSpeak</span></a></li>
+          <li class="locus"><a href="/locus/"><span class="turn-phrase">photos into places</span><span class="turn-name">Locus</span></a></li>
+          <li class="cognify"><a href="/cognify/"><span class="turn-phrase">notes into study sessions</span><span class="turn-name">Cognify</span></a></li>
+          <li class="callcheck"><a href="/callcheck/"><span class="turn-phrase">phone calls into scorecards</span><span class="turn-name">CallCheck</span></a></li>
+        </ul>
       </div>
     </section>
 
-    <div class="tiles" id="projects">
-      <section class="tile tile-full dark" aria-labelledby="signspeak-title">
-        <p class="eyebrow">Accessibility · Computer vision</p>
-        <h2 id="signspeak-title">SignSpeak</h2>
-        <p class="subhead">Sign in ASL. Read English. Hear it spoken.</p>
-        <div class="ctas">
-          <a class="button" href="/signspeak/">Learn more<span class="sr-only"> about SignSpeak</span></a>
-          <a class="button button-secondary" href="https://signspeak-asl-poc.vercel.app/demo" target="_blank" rel="noopener noreferrer">Try the demo<span class="sr-only"> (opens in a new tab)</span></a>
+    <section class="work wrap" id="projects" aria-label="Projects">
+      <article class="project signspeak" aria-labelledby="signspeak-title">
+        <div>
+          <h2 id="signspeak-title"><a href="/signspeak/">SignSpeak</a></h2>
+          <p class="tagline">Sign in ASL. Read English. Hear it spoken.</p>
+          <p class="desc">Someone signs on camera, a 200-sign model reads the signs, and the browser speaks the English translation aloud. It reaches 90.3% top-1 accuracy on the test set. Built for DECA's Entrepreneurship Innovation Plan.</p>
+          <p class="built-with"><b>Built with</b> Next.js, MediaPipe, ONNX Runtime and Gemini</p>
+          <div class="actions">
+            <a class="btn" href="/signspeak/">View project<span class="sr-only">: SignSpeak</span></a>
+            <a class="btn btn-line" href="https://signspeak-asl-poc.vercel.app/demo" target="_blank" rel="noopener noreferrer">Try the demo<span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
         </div>
-        <div class="tile-media">
+        <div class="panel">
           <div class="frame">
-            <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-            <img src="/assets/img/signspeak-landing.webp" alt="SignSpeak landing page: Sign in ASL. Read English. Hear it spoken." width="2880" height="1800" loading="eager">
+            <div class="frame-bar" aria-hidden="true"><span>signspeak-asl-poc.vercel.app</span></div>
+            <img src="/assets/img/signspeak-landing.webp" alt="SignSpeak landing page: Sign in ASL. Read English. Hear it spoken." width="2880" height="1800">
           </div>
         </div>
-      </section>
+      </article>
 
-      <div class="tiles-split">
-        <section class="tile tile-half" aria-labelledby="locus-title">
-          <p class="eyebrow">Exploration · Visual AI</p>
-          <h2 id="locus-title">Locus</h2>
-          <p class="subhead">Where was this photo taken?</p>
-          <div class="ctas">
-            <a class="button" href="/locus/">Learn more<span class="sr-only"> about Locus</span></a>
-            <a class="button button-secondary" href="https://photo-geo-guess.vercel.app" target="_blank" rel="noopener noreferrer">Try Locus<span class="sr-only"> (opens in a new tab)</span></a>
+      <article class="project locus" aria-labelledby="locus-title">
+        <div>
+          <h2 id="locus-title"><a href="/locus/">Locus</a></h2>
+          <p class="tagline">Where was this photo taken?</p>
+          <p class="desc">Drop in a photo and get a best-guess location on a map. Locus uses the photo's GPS when it has it, and when it has to guess from what's in the picture, it draws a 10 to 30 km circle instead of a falsely precise pin.</p>
+          <p class="built-with"><b>Built with</b> React, Leaflet, exifr and OpenAI, Anthropic or Gemini</p>
+          <div class="actions">
+            <a class="btn" href="/locus/">View project<span class="sr-only">: Locus</span></a>
+            <a class="btn btn-line" href="https://photo-geo-guess.vercel.app" target="_blank" rel="noopener noreferrer">Try Locus<span class="sr-only"> (opens in a new tab)</span></a>
           </div>
-          <div class="tile-media">
-            <div class="frame">
-              <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-              <img src="/assets/img/locus-home.webp" alt="Locus upload screen: Where was this taken? Drop a photo here." width="2880" height="1520" loading="lazy">
-            </div>
-          </div>
-        </section>
-
-        <section class="tile tile-half" aria-labelledby="cognify-title">
-          <p class="eyebrow">Learning · AI workspace</p>
-          <h2 id="cognify-title">Cognify</h2>
-          <p class="subhead">Turn class notes into study sessions.</p>
-          <div class="ctas">
-            <a class="button" href="/cognify/">Learn more<span class="sr-only"> about Cognify</span></a>
-            <a class="button button-secondary" href="https://github.com/plut0000/Cognify" target="_blank" rel="noopener noreferrer">View code<span class="sr-only"> (opens in a new tab)</span></a>
-          </div>
-          <div class="tile-media">
-            <div class="frame">
-              <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-              <img src="/assets/img/cognify-workspace.webp" alt="Cognify study workspace showing a Cellular Respiration notebook summary and the study coach." width="2880" height="1800" loading="lazy">
-            </div>
-          </div>
-        </section>
-      </div>
-      <section class="tile tile-full" aria-labelledby="callcheck-title">
-        <p class="eyebrow">Small business · Voice AI</p>
-        <h2 id="callcheck-title">CallCheck</h2>
-        <p class="subhead">Find out how your phone is answered when you're not there.</p>
-        <div class="ctas">
-          <a class="button" href="/callcheck/">Learn more<span class="sr-only"> about CallCheck</span></a>
-          <a class="button button-secondary" href="https://callcheck-ten.vercel.app" target="_blank" rel="noopener noreferrer">Try CallCheck<span class="sr-only"> (opens in a new tab)</span></a>
         </div>
-        <div class="tile-media">
+        <div class="panel">
           <div class="frame">
-            <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="frame-bar" aria-hidden="true"><span>photo-geo-guess.vercel.app</span></div>
+            <img src="/assets/img/locus-home.webp" alt="Locus upload screen: Where was this taken? Drop a photo here." width="2880" height="1520" loading="lazy">
+          </div>
+        </div>
+      </article>
+
+      <article class="project cognify" aria-labelledby="cognify-title">
+        <div>
+          <h2 id="cognify-title"><a href="/cognify/">Cognify</a></h2>
+          <p class="tagline">Turn class notes into study sessions.</p>
+          <p class="desc">Upload your notes and Cognify builds summaries, flashcards, quizzes, slideshows and a study coach, all from your own material. It's open source under the MIT license.</p>
+          <p class="built-with"><b>Built with</b> Next.js, PDF.js, Gemini and Auth.js</p>
+          <div class="actions">
+            <a class="btn" href="/cognify/">View project<span class="sr-only">: Cognify</span></a>
+            <a class="btn btn-line" href="https://github.com/plut0000/Cognify" target="_blank" rel="noopener noreferrer">View code<span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="frame">
+            <div class="frame-bar" aria-hidden="true"><span>localhost:3000</span></div>
+            <img src="/assets/img/cognify-workspace.webp" alt="Cognify study workspace showing a Cellular Respiration notebook summary and the study coach." width="2880" height="1800" loading="lazy">
+          </div>
+        </div>
+      </article>
+
+      <article class="project callcheck" aria-labelledby="callcheck-title">
+        <div>
+          <h2 id="callcheck-title"><a href="/callcheck/">CallCheck</a></h2>
+          <p class="tagline">Find out how your phone is answered when you're not there.</p>
+          <p class="desc">An AI caller phones a business as an ordinary customer, then grades how fast staff picked up, how they greeted, whether the facts were right and whether they offered a time.</p>
+          <p class="built-with"><b>Built with</b> Next.js, Vapi, OpenAI and Vercel Blob</p>
+          <div class="actions">
+            <a class="btn" href="/callcheck/">View project<span class="sr-only">: CallCheck</span></a>
+            <a class="btn btn-line" href="https://callcheck-ten.vercel.app" target="_blank" rel="noopener noreferrer">Try CallCheck<span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="frame">
+            <div class="frame-bar" aria-hidden="true"><span>callcheck-ten.vercel.app</span></div>
             <img src="/assets/img/callcheck-scorecard.webp" alt="CallCheck scorecard for a sample car dealership call, with a D grade, category scores and practice tips." width="2880" height="1800" loading="lazy">
           </div>
         </div>
-      </section>
-    </div>
+      </article>
+    </section>
 
-    <section class="contact reveal" id="contact" aria-labelledby="contact-title">
-      <div class="container">
-        <h2 class="headline">Let's connect.</h2>
-        <p class="subhead">Interested in working together? Reach out on LinkedIn or see more of my code on GitHub.</p>
-        <div class="ctas">
-          <a class="button" href="https://www.linkedin.com/in/calebrong/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
-          <a class="button button-secondary" href="https://github.com/plut0000" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in a new tab)</span></a>
-        </div>
+    <section class="proof" aria-labelledby="proof-title">
+      <div class="wrap">
+        <h2 id="proof-title">Every project shows its work</h2>
+        <p>None of them hand back an answer without saying where it came from or how sure it is.</p>
+        <dl>
+          <div class="signspeak">
+            <dt>SignSpeak</dt>
+            <dd>Accepts a sign only when its confidence checks pass, and labels each translation with the path that produced it: the dedicated model or Gemini video.</dd>
+          </div>
+          <div class="locus">
+            <dt>Locus</dt>
+            <dd>Sizes its circle to how sure it is: 1.7 km when the photo has GPS, 10 to 30 km for a visual guess, with a short rationale on the map.</dd>
+          </div>
+          <div class="cognify">
+            <dt>Cognify</dt>
+            <dd>Builds every summary, flashcard, quiz question and coach answer from the notebook you uploaded.</dd>
+          </div>
+          <div class="callcheck">
+            <dt>CallCheck</dt>
+            <dd>Grades the call against the facts you entered, with a separate score for each of four areas and the fixes that matter most.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <h2 id="contact-title">Get in touch</h2>
+        <p>Interested in working together, or have a question about one of these projects? Message me on LinkedIn or see more of my code on GitHub.</p>
+        <ul class="contact-links">
+          <li><a href="https://www.linkedin.com/in/calebrong/" target="_blank" rel="noopener noreferrer"><span class="name">LinkedIn</span><span class="handle">linkedin.com/in/calebrong</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li><a href="https://github.com/plut0000" target="_blank" rel="noopener noreferrer"><span class="name">GitHub</span><span class="handle">github.com/plut0000</span><span class="sr-only"> (opens in a new tab)</span></a></li>
+        </ul>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
+    <div class="wrap">
+      <p>© 2026 Caleb Rong. Set in Atkinson Hyperlegible Next.</p>
       <ul class="footer-links">
         <li><a href="/signspeak/">SignSpeak</a></li>
         <li><a href="/locus/">Locus</a></li>
         <li><a href="/cognify/">Cognify</a></li>
         <li><a href="/callcheck/">CallCheck</a></li>
-        <li><a href="https://www.linkedin.com/in/calebrong/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-        <li><a href="https://github.com/plut0000" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/calebrong/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
+        <li><a href="https://github.com/plut0000" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in a new tab)</span></a></li>
       </ul>
-      <p>Copyright © 2026 Caleb Rong. All rights reserved.</p>
     </div>
   </footer>
 </body>

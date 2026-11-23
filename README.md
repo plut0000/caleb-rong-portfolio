@@ -1,6 +1,6 @@
 # Caleb Rong — Portfolio
 
-A static portfolio with a home page and a page for each project: SignSpeak, Locus, Cognify and CallCheck. Plain HTML and CSS, plus a few lines of JavaScript for scroll animations. No dependencies or build step.
+A static portfolio with a home page and a page for each project: SignSpeak, Locus, Cognify and CallCheck. Plain HTML and CSS with no JavaScript, dependencies or build step.
 
 ```
 index.html            Home page
@@ -12,9 +12,14 @@ callcheck/index.html  CallCheck project page
 styles.css            Shared styles
 assets/img/           Screenshots of each app (WebP)
 assets/og/            Link preview images (1200×630) for each page
-assets/fonts/         Inter (SIL Open Font License); Apple devices use SF Pro instead
-assets/site.js        Scroll fade-in
+assets/fonts/         Atkinson Hyperlegible Next (SIL Open Font License)
 ```
+
+## Design
+
+- **Type:** one family, Atkinson Hyperlegible Next, a typeface the Braille Institute designed for readers with low vision. Its slashed zero is part of the design.
+- **Color:** navy ink (`#18213a`) on white. Each project has a key color taken from its own app, set by a class on `<body>` or on any element: `.signspeak`, `.locus`, `.cognify`, `.callcheck`. The class sets `--key` (buttons, links, focus rings), `--band` (the background behind screenshots) and `--tint` (screenshot sections).
+- **Screenshots:** each one sits in a frame whose address bar shows where the app runs.
 
 ## Preview locally
 
@@ -36,4 +41,4 @@ The images in `assets/img/` were captured from each app running locally at 1440�
 
 ## Link previews
 
-Each page has Open Graph and Twitter card tags, so pasting a link into iMessage, LinkedIn, Slack or Discord shows a preview image from `assets/og/`. The tags use absolute URLs on `https://www.caleb-rong.com`; update them if the domain changes. Some apps cache previews, so a change can take a while to show up for a link that was already shared.
+Each page has Open Graph and Twitter card tags, so pasting a link into iMessage, LinkedIn, Slack or Discord shows a preview image from `assets/og/`. The images use the site's own type and colors. The tags use absolute URLs on `https://www.caleb-rong.com`; update them if the domain changes. Some apps cache previews, so a change can take a while to show up for a link that was already shared.
